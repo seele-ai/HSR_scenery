@@ -3,6 +3,8 @@ var pathLayer;
 var scnPathLayer;
 var scnLabelsLayer
 var allscnpolyline
+var allScnLabelsLayer
+
 
 // 加载器
 AMapLoader.load({
@@ -118,7 +120,12 @@ AMapLoader.load({
         zIndex:16
     })
 
-
+    // 所有景点
+    allScnLabelsLayer = new AMap.LabelsLayer({
+        zIndex:15,
+    })
+    map.add(allScnLabelsLayer)
+    
     // 添加站点图层
     map.add(stslabelsLayer)
 })
@@ -127,5 +134,5 @@ AMapLoader.load({
 })
 
 function load_map(){
-    
+
 }

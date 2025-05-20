@@ -1,3 +1,25 @@
+// 初始化景点图标对象
+const scnicon3={
+    type:"image",
+    image:"img/scn3.png",
+    size:[14,14], // 图片尺寸
+    anchor: 'center'
+}
+
+const scnicon4={
+    type:"image",
+    image:"img/scn4.png",
+    size:[16,16], // 图片尺寸
+    anchor: 'center'
+}
+
+const scnicon5={
+    type:"image",
+    image:"img/scn5.png",
+    size:[36,36], // 图片尺寸
+    anchor: 'center'
+}
+
 function show_path(path){
     path_str(path)
     path_map(path)
@@ -166,29 +188,6 @@ function path_map(path){
         allowCollision: false,// 不同层标注避让
     })
 
-
-    // 初始化景点图标对象
-    const scnicon3={
-        type:"image",
-        image:"img/scn3.png",
-        size:[14,14], // 图片尺寸
-        anchor: 'center'
-    }
-
-    const scnicon4={
-        type:"image",
-        image:"img/scn4.png",
-        size:[16,16], // 图片尺寸
-        anchor: 'center'
-    }
-
-    const scnicon5={
-        type:"image",
-        image:"img/scn5.png",
-        size:[36,36], // 图片尺寸
-        anchor: 'center'
-    }
-
     // 添加新的线路
     pathList = []
     for(path_i = 0;path_i < path.length; path_i++){
@@ -317,4 +316,106 @@ function min_to_h(min){
         str = Math.floor(min) + "min"
     }
     return str
+}
+
+// 显示所有景点
+function showAll(){
+    var set = get_od()
+    value_5A = set[3]
+    value_4A = set[4]
+    value_3A = set[5]
+    if(document.getElementById("all_scenery").innerHTML == "显示所有景点"){
+        document.getElementById("all_scenery").innerHTML = "隐藏所有景点"
+        // 添加景点数据
+        for(scn_i = 0;scn_i <station_data.length;scn_i++){
+            this_station = station_data[scn_i]
+            sLng = this_station.Lng
+            sLat = this_station.Lat
+            if(this_station.near_scenery.length != 0){
+                for(scn_j = 0;scn_j<this_station.near_scenery.length;scn_j++){
+                    level = this_station.near_scenery[scn_j].slice(0,1)
+                    // 判断是否应该添加
+                    badd = false
+                    if(level == 3 & value_3A != '0'){
+                            badd = true
+                        }
+                    if(level == 4 & value_4A != '0'){
+                            badd = true
+                        }
+                    if(level == 5 & value_5A != '0'){
+                            badd = true
+                        }
+
+                    if(badd){
+                        scnLng = Number(this_station.scenery_Lng[scn_j])
+                        scnLat = Number(this_station.scenery_Lat[scn_j])
+                        level = this_station.near_scenery[scn_j].slice(0,1)
+                        scnName = this_station.scenery_name[scn_j]
+
+                        // 添加景点
+                        const text={
+                            content: level + "A:" +  scnName,
+                            direction: "right",
+                            offset:[0,0], // 偏移方向
+
+                            style:{
+                                fontSize: 12, //字体大小    
+                                fillColor: "#111111", //字体颜色
+                                strokeColor: "#fff", //描边颜色
+                                strokeWidth: 2, //描边宽度
+                                },
+                                zIndex:120,
+                        }
+
+                        if(level == 3)
+                        {
+                            labelmarker = new AMap.LabelMarker({
+                                name:'标注',
+                                position: new AMap.LngLat(scnLng,scnLat),
+                                zIndex:120,
+                                rank:1, // 优先避让级
+                                icon:scnicon3,
+                                text:text,
+                            })
+                        }
+                        else if(level == 4) {
+                            labelmarker = new AMap.LabelMarker({
+                                name:'标注',
+                                position: new AMap.LngLat(scnLng,scnLat),
+                                zIndex:120,
+                                rank:1, // 优先避让级
+                                icon:scnicon4,
+                                text:text,
+                            })
+                        }
+                        else {
+                            labelmarker = new AMap.LabelMarker({
+                                name:'标注',
+                                position: new AMap.LngLat(scnLng,scnLat),
+                                zIndex:120,
+                                rank:1, // 优先避让级
+                                icon:scnicon5,
+                                text:text,
+                            })
+                        }
+                        allScnLabelsLayer.add(labelmarker)
+                    }
+                }
+            }
+
+        }
+
+
+
+
+    }
+    else{
+        // 删除并重新添加图层
+        document.getElementById("all_scenery").innerHTML = "显示所有景点"
+        map.remove(allScnLabelsLayer)
+        allScnLabelsLayer = new AMap.LabelsLayer({
+        zIndex:15,
+         })
+        map.add(allScnLabelsLayer)
+    }
 }

@@ -152,7 +152,15 @@ table#set_A_value{
   background-color: #66ccff;
   width: 50%;
   left: 25%;
-  top: 60%;
+  top: 80%;
+}
+
+#all_scenery{
+  position: inherit;
+  background-color: #66ccff;
+  width: 50%;
+  left: 25%;
+  top: 40%;
 }
 
 #warning{
