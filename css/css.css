@@ -143,19 +143,10 @@ table#set_A_value{
 #all_0{
     position: inherit;
     background-color: #66ccff;
-    top:0%;
+    top:0px;
     width: 50%;
     left: 25%;
     height: 25px;
-}
-
-#start_btn{
-  position: inherit;
-  background-color: #66ccff;
-  width: 50%;
-  left: 25%;
-  top: 80%;
-  height: 25px;
 }
 
 #all_scenery{
@@ -163,9 +154,20 @@ table#set_A_value{
   background-color: #66ccff;
   width: 50%;
   left: 25%;
-  top: 40%;
+  top: 30px;
   height: 25px;
 }
+
+#start_btn{
+  position: inherit;
+  background-color: #66ccff;
+  width: 50%;
+  left: 25%;
+  top: 60px;
+  height: 25px;
+}
+
+
 
 #warning{
   background-color: red;
