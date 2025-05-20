@@ -185,7 +185,7 @@ function path_map(path){
     const scnicon5={
         type:"image",
         image:"img/scn5.png",
-        size:[18,18], // 图片尺寸
+        size:[36,36], // 图片尺寸
         anchor: 'center'
     }
 

@@ -60,25 +60,30 @@ body, html{
 #Right #way_point_select{
   position: absolute;
   width: 100%;
-  height: 30%;
+  height: 25%;
   overflow-y: visible;
   padding-bottom: 5%;
 }
 
 #Right #scenery_select{
   position: absolute;
-  top:35%;
-  height: 50%;
+  top:25%;
+  height: 60%;
   width: 100%;
   overflow-y: auto;
 }
 
 #Right #btn_pos{
   position: absolute;
-  top: 80%;
+  top: 85%;
   height: 10%;
   width: 100%;
 }
+
+#way_point_select p{
+  margin: 0.5vh;
+}
+
 
 #way_point_select .select_input{
   position: inherit;
@@ -135,7 +140,7 @@ table#set_A_value{
 #all_0{
     position: inherit;
     background-color: #66ccff;
-    top:82%;
+    top:0%;
     width: 50%;
     left: 25%;
 }
@@ -145,7 +150,7 @@ table#set_A_value{
   background-color: #66ccff;
   width: 50%;
   left: 25%;
-  top: 20%;
+  top: 60%;
 }
 
 #warning{
@@ -205,4 +210,34 @@ table#set_A_value{
     background: initial;
     color: initial;
     font-weight: initial;
+}
+
+.info{
+  position: inherit;
+  width: 26px;
+}
+
+.info img{
+  position: inherit;
+  display: inline;
+}
+
+.info .info_hide {
+    visibility: hidden;
+    width: 100%;
+    background-color: #727272;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    font-size: 1.5vh;
+    text-align: left;
+ 
+    /* 定位 */
+    position: absolute;
+    z-index: 1;
+}
+
+.info:hover .info_hide {
+    visibility: visible;
 }

@@ -55,7 +55,16 @@
             </div>
             <div id="scenery_select">
                 <!-- 设置时间 -->
-                <h2>站点景点间最大驾车时间设置</h2>
+                <h2>站点景点间最大驾车时间设置
+                    <div class="info">
+                        <img src="img/info.png">
+                        <div class="info_hide">
+                            此设置可改变每个站点周围景点数目<br>
+                            当设置为60min时，只有60min内驾车可达的站点会被计入
+                        </div>
+                    </div>
+                </h2>
+                
                 <input id="set_tour_time" type="range" step="5" min="5" max="120" value="60" title="时间设置（min）" list="time_list" 
                 onchange="
                     value = document.getElementById('set_tour_time').value
@@ -69,7 +78,15 @@
                 <span id="show_tour_time">当前设置时间：60min</span>
 
                 <!-- 设置景点权重 -->
-                 <h2>设置不同等级景点的权重</h2>
+                 <h2>设置不同等级景点的权重
+                    <div class="info">
+                        <img src="img/info.png">
+                        <div class="info_hide">
+                            本网页通过最小化每景点的平均时间进行规划，可在此设置不同等级景点的权重<br>
+                            例：将5A设为2，表示每个5个景点等价于2个景点。
+                        </div>
+                    </div>
+                </h2>
                  <table id="set_A_value">
                     <thead>
                         <tr>
@@ -100,9 +117,10 @@
                         </tr>
                     </tbody>
                  </table>
-                 <button id="all_0" onclick = "setAll0()">置零</button>
+                 
             </div>
             <div id="btn_pos">
+                <button id="all_0" onclick = "setAll0()">置零</button>
                 <button id="start_btn" onclick="djkistra()">开始规划</button>
             </div>
         </div>
