@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>动车顺路游</title>
+
+        <!--导入js文件-->
+        <script type="text/javascript">
+            window._AMapSecurityConfig = {securityJsCode:"5849bddb599c9c33341160860a569ad1"}
+        </script>
+        <!--高德API-->
+        <script src="https://webapi.amap.com/loader.js"></script>
+        <script src="js/base_map.js"></script>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script> <!--jquery-->
+        <!-- 加载 Select2 -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.8/js/select2.min.js"></script>
+        <script src = "js/load_data.js"></script>
+        <script src="js/djksitra.js"></script>
+        <script src="js/show_path.js"></script>
+        <!--导入css布局-->
+        <link rel="stylesheet" href="css/css.css" type="text/css">
+    </head>
+
+    <body>
+        <!--开始页面布局-->
+
+        <!--顶部，负责标题-->
+        <div id="Top">
+            <h1>动车顺路游</h1>
+            <div id="warning"></div>
+        </div>
+
+        <!--左侧，负责地图绘制与结果展示-->
+        <div id="Left">
+            <div id="final_path" class = "hide"></div>
+        </div>
+
+        <!--右侧，负责用户设置参数-->
+        <div id="Right">
+            <!--设置起终点需要吗-->
+            <div id="way_point_select">
+                <p>起点站设置：</p>
+                <select title="source" id="source_station_select" class="select_input">
+                    <option value="">----请输入起点站----</option>
+                </select>
+                <p>终点站设置：</p>
+                <select title="target" id="target_station_select" class="select_input">
+                    <option value="">----请输入终点站----</option>
+                </select>
+            </div>
+            <div id="scenery_select">
+                <!-- 设置时间 -->
+                <h2>站点景点间最大驾车时间设置</h2>
+                <input id="set_tour_time" type="range" step="5" min="5" max="120" value="60" title="时间设置（min）" list="time_list" 
+                onchange="
+                    value = document.getElementById('set_tour_time').value
+                    document.getElementById('show_tour_time').innerHTML= '当前设置时间：' + value + 'min'
+                ">
+
+                <datalist id="time_list">
+                    <option value="5" label="5min"></option>
+                    <option value="120" label="2h"></option>
+                </datalist>
+                <span id="show_tour_time">当前设置时间：60min</span>
+
+                <!-- 设置景点权重 -->
+                 <h2>设置不同等级景点的权重</h2>
+                 <table id="set_A_value">
+                    <thead>
+                        <tr>
+                            <th>景点等级</th>
+                            <th>景点权重</th>
+                        </tr>
+                    </thead>
+                    <tbody align="center">
+                        <tr>
+                            <td>5A景点</td>
+                            <td>
+                                <input type="number" id="value_5A" class="scenery_num" value="1" step="0.5" min="0" max="5">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>4A景点</td>
+                            <td>
+                                <input type="number" id="value_4A" class="scenery_num" value="0.5" step="0.5" min="0" max="5">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>3A景点</td>
+                            <td>
+                                <input type="number" id="value_3A" class="scenery_num" value="0" step="0.5" min="0" max="5">
+                            </td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <button id="all_0" onclick = "setAll0()">置零</button>
+            </div>
+            <div id="btn_pos">
+                <button id="start_btn" onclick="djkistra()">开始规划</button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,208 @@
+/* 页面布局设置 */
+body, html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.hide{
+  display: none;
+}
+
+/* 最高级div设置 */
+#Top{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+}
+
+#Left{
+  position: absolute;
+  top: 10%;
+  width: 70%;
+  height: 85%;
+  margin-right: 5%;
+  border-style: solid;
+}
+
+#Right{
+  position: absolute;
+  top: 10%;
+  left: 70%;
+  width: 20%;
+  height: 85%;
+  margin-left: 5%;
+}
+
+/* 上方div设计，负责标题 */
+#Top h1{
+  text-align: center;
+  color: #66ccff;
+  background-color: gray;
+  font-family:STXihei, "Microsoft YaHei";
+  font-size: 4vh;
+  margin: auto;
+}
+
+/* 左侧div设计，负责地图绘制与结果展示 */
+#Left #final_path{
+  position: absolute;
+  width: 30%;
+  left: 70%;
+  overflow-y: auto;
+  background-color: transparent;
+  z-index: 1;
+  max-height: 80%
+}
+
+/* 右侧div设计，负责用户设置参数 */
+#Right #way_point_select{
+  position: absolute;
+  width: 100%;
+  height: 30%;
+  overflow-y: visible;
+  padding-bottom: 5%;
+}
+
+#Right #scenery_select{
+  position: absolute;
+  top:35%;
+  height: 50%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+#Right #btn_pos{
+  position: absolute;
+  top: 80%;
+  height: 10%;
+  width: 100%;
+}
+
+#way_point_select .select_input{
+  position: inherit;
+  width: 100%;
+  align-self: center;
+
+}
+
+.selection{
+  position: relative;
+  width: 100%;
+
+}
+
+#set_tour_time{
+  width: 80%;
+}
+
+#scenery_select #show_tour_time{
+  font-size: 1.5vh;
+  padding-bottom: 10%;
+}
+
+#scenery_select h2{
+  padding-top: 10%;
+  margin: auto;
+  font-size: 2vh;
+}
+
+#scenery_select datalist {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  writing-mode: horizontal-tb;
+  width: 80%;
+}
+
+#scenery_select option {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 1.5vh;
+}
+
+table#set_A_value{
+  font-size: 1.5vh;
+}
+
+
+.scenery_num{
+  width: 80%;
+  align-items: center;
+}
+
+#all_0{
+    position: inherit;
+    background-color: #66ccff;
+    top:82%;
+    width: 50%;
+    left: 25%;
+}
+
+#start_btn{
+  position: inherit;
+  background-color: #66ccff;
+  width: 50%;
+  left: 25%;
+  top: 20%;
+}
+
+#warning{
+  background-color: red;
+  font-size: 3vh;
+  text-align: center;
+}
+
+.hide{
+  display: none;
+}
+
+#final_path #path_table{
+  width: 100%;
+  text-align: center;
+  border: 1px;
+  border-color: black;
+  font-weight: bold;
+  font-size:medium;
+  border-spacing: 0;
+  background-color: #e0e0e0;
+}
+
+#path_table th{
+    border-left: none;
+    border-right: 1px solid #bbbbbb;
+    padding: 5px;
+    width: 10vh;
+    position: sticky;
+    top: 0;
+    background: #727272;
+    color: #e0e0e0;
+    font-weight: normal;
+
+}
+
+#final_path .station{
+  width: 100%;
+}
+
+#final_path table.show{
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size:medium;
+  border: 0px;
+}
+
+#final_path table.show th{
+    border-left: initial;
+    border-right: initial;
+    padding: initial;
+    width: initial;
+    min-width: initial;
+    position: initial;
+    top: initial;
+    background: initial;
+    color: initial;
+    font-weight: initial;
+}
