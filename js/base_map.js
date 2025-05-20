@@ -91,6 +91,7 @@ AMapLoader.load({
                     strokeColor: "black", //线条颜色
                     strokeStyle:"dashed", // 线条样式
                     strokeDasharray:[10,2,10],
+                    strokeOpacity: 1,
 
                 })
                 pathList.push(polyline)
