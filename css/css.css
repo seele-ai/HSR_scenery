@@ -1,259 +1,298 @@
-/* 页面布局设置 */
-body, html{
+/* Reset default styles for consistency */
+body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     width: 100%;
+    font-family: 'Arial', 'Helvetica', sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
 }
 
-.hide{
-  display: none;
+/* Hide class */
+.hide {
+    display: none;
 }
 
-/* 最高级div设置 */
-#Top{
-  position: absolute;
-  width: 100%;
-  height: 10%;
+/* Top header styling */
+#Top {
+    position: absolute;
+    width: 100%;
+    height: 5%;
+    background: linear-gradient(90deg, #007bff, #00c4ff);
+    display: flex;
+    flex-direction: column; /* Stack title and warning vertically */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 0; /* Add padding for spacing */
 }
 
-#Left{
-  position: absolute;
-  top: 10%;
-  width: 70%;
-  height: 85%;
-  margin-right: 5%;
-  border-style: solid;
+/* Ensure title stays centered but allows space for warning */
+#Top h1 {
+    margin: 0;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-#Right{
-  position: absolute;
-  top: 10%;
-  left: 70%;
-  width: 20%;
-  height: 85%;
-  margin-left: 5%;
+/* Left panel (Map and results) */
+#Left {
+    position: absolute;
+    top: 10%;
+    width: 70%;
+    height: 88%;
+    margin-right: 5%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 上方div设计，负责标题 */
-#Top h1{
-  text-align: center;
-  color: #66ccff;
-  background-color: gray;
-  font-family:STXihei, "Microsoft YaHei";
-  font-size: 4vh;
-  margin: auto;
+#Left #final_path {
+    position: absolute;
+    width: 30%;
+    left: 70%;
+    max-height: 80%;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-left: 1px solid #ddd;
+    z-index: 1;
 }
 
-/* 左侧div设计，负责地图绘制与结果展示 */
-#Left #final_path{
-  position: absolute;
-  width: 30%;
-  left: 70%;
-  overflow-y: auto;
-  background-color: transparent;
-  z-index: 1;
-  max-height: 80%
+/* Right panel (User inputs) */
+#Right {
+    position: absolute;
+    top: 10%;
+    left: 70%;
+    width: 25%;
+    height: 85%;
+    margin-left: 2.5%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
 }
 
-/* 右侧div设计，负责用户设置参数 */
-#Right #way_point_select{
-  position: absolute;
-  width: 100%;
-  height: 25%;
-  overflow-y: visible;
-  padding-bottom: 5%;
-  z-index: 2;
+/* Waypoint selection */
+#Right #way_point_select {
+    width: 100%;
+    padding-bottom: 20px;
 }
 
-#Right #scenery_select{
-  position: absolute;
-  top:25%;
-  height: 55%;
-  width: 100%;
-  overflow-y: auto;
+#way_point_select p {
+    margin: 10px 0;
+    font-size: 1rem;
+    color: #555;
 }
 
-#Right #btn_pos{
-  position: absolute;
-  top: 80%;
-  height: 20%;
-  width: 100%;
-  z-index: 2;
-  overflow-y: auto;
+#way_point_select .select_input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-#way_point_select p{
-  margin: 0.5vh;
+#way_point_select .select_input:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
-
-#way_point_select .select_input{
-  position: inherit;
-  width: 100%;
-  align-self: center;
-
+#set_tour_time {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
 }
 
-.selection{
-  position: relative;
-  width: 100%;
-
+/* Scenery selection */
+#Right #scenery_select {
+    position: relative;
+    top: 25%;
+    height: 55%;
+    width: 100%;
+    padding: 10px 0;
 }
 
-#set_tour_time{
-  width: 80%;
+#scenery_select h2 {
+    margin: 0 0 15px;
+    font-size: 1.25rem;
+    color: #333;
+    font-weight: 600;
 }
 
-#scenery_select #show_tour_time{
-  font-size: 1.5vh;
-  padding-bottom: 10%;
-}
-
-#scenery_select h2{
-  padding-top: 10%;
-  margin: auto;
-  font-size: 2vh;
+#scenery_select #show_tour_time {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 15px;
 }
 
 #scenery_select datalist {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  writing-mode: horizontal-tb;
-  width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 #scenery_select option {
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 1.5vh;
+    padding: 5px 10px;
+    font-size: 0.9rem;
 }
 
-table#set_A_value{
-  font-size: 1.5vh;
+table#set_A_value {
+    width: 100%;
+    font-size: 0.9rem;
+    border-collapse: collapse;
 }
 
-
-.scenery_num{
-  width: 80%;
-  align-items: center;
+table#set_A_value th, table#set_A_value td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
 }
 
-#all_0{
-    position: inherit;
-    background-color: #66ccff;
-    top:0px;
-    width: 50%;
-    left: 25%;
-    height: 25px;
+.scenery_num {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
 }
 
-#all_scenery{
-  position: inherit;
-  background-color: #66ccff;
-  width: 50%;
-  left: 25%;
-  top: 30px;
-  height: 25px;
+/* Buttons */
+#all_0, #all_scenery, #start_btn {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#start_btn{
-  position: inherit;
-  background-color: #66ccff;
-  width: 50%;
-  left: 25%;
-  top: 60px;
-  height: 25px;
+#all_0:hover, #all_scenery:hover, #start_btn:hover {
+    background-color: #0056b3;
 }
 
-
-
-#warning{
-  background-color: red;
-  font-size: 3vh;
-  text-align: center;
+#btn_pos {
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    text-align: center;
 }
 
-.hide{
-  display: none;
+/* Warning message */
+#warning {
+    background-color: #ff4d4f;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0px;
+    border-radius: 4px;
+    margin-top: 0px; /* Space below title */
+    width: 80%; /* Prevent full-width stretch */
+    max-width: 600px; /* Limit max width */
 }
 
-#final_path #path_table{
-  width: 100%;
-  text-align: center;
-  border: 1px;
-  border-color: black;
-  font-weight: bold;
-  font-size:medium;
-  border-spacing: 0;
-  background-color: #e0e0e0;
+/* Path table */
+#final_path #path_table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    background-color: #fff;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-#path_table th{
-    border-left: none;
-    border-right: 1px solid #bbbbbb;
-    padding: 5px;
-    width: 10vh;
+#path_table th {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    font-weight: 600;
     position: sticky;
     top: 0;
-    background: #727272;
-    color: #e0e0e0;
-    font-weight: normal;
-
 }
 
-#final_path .station{
-  width: 100%;
+#path_table td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
 }
 
-#final_path table.show{
-  width: 100%;
-  font-style: normal;
-  font-weight: normal;
-  font-size:medium;
-  border: 0px;
+#final_path table.show {
+    width: 100%;
+    font-size: 0.9rem;
+    border-collapse: collapse;
 }
 
-#final_path table.show th{
-    border-left: initial;
-    border-right: initial;
-    padding: initial;
-    width: initial;
-    min-width: initial;
-    position: initial;
-    top: initial;
-    background: initial;
-    color: initial;
-    font-weight: initial;
+#final_path
+
+ table.show th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
 }
 
-.info{
-  position: inherit;
-  width: 26px;
+#final_path table.show td {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
 }
 
-.info img{
-  position: inherit;
-  display: inline;
+/* Info tooltip */
+.info {
+    position: relative;
+    display: inline-block;
+}
+
+.info img {
+    width: 20px;
+    vertical-align: middle;
 }
 
 .info .info_hide {
     visibility: hidden;
-    width: 100%;
-    background-color: #727272;
+    width: 200px;
+    background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-    font-size: 1.5vh;
     text-align: left;
- 
-    /* 定位 */
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .info:hover .info_hide {
     visibility: visible;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #007bff;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0056b3;
 }
