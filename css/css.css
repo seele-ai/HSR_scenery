@@ -116,9 +116,10 @@ body, html {
 #Right #scenery_select {
     position: relative;
     top: 5%;
-    height: 55%;
+    height: auto;
     width: 100%;
     padding: 10px 0;
+    padding-bottom: 10px;
 }
 
 #scenery_select h2 {
@@ -186,10 +187,10 @@ table#set_A_value th, table#set_A_value td {
 }
 
 #btn_pos {
-    position: absolute;
-    top: 80%;
+    position: inherit;
     width: 100%;
     text-align: center;
+    padding-top: 25px;
 }
 
 /* Warning message */
